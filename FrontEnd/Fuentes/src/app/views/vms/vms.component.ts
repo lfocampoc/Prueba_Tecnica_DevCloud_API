@@ -15,6 +15,7 @@ import { SessionService } from '@utils/session-util';
 import { UsersModel } from '@models/usersModelDto';
 import { WebSocketService } from '@services/websocket.service';
 import { Subscription } from 'rxjs';
+import { environment } from '@environments/environment'
 
 @Component({
   selector: 'screen-vms',
@@ -49,7 +50,7 @@ export class VmsComponent implements OnInit {
 
   ngOnInit(): void {
     // Conectamos al servidor WebSocket
-    this.webSocketService.connect('ws://localhost:8080/ws');
+    this.webSocketService.connect(environment.webSocketUrl);
 
     this.wsSubscription = this.webSocketService.getMessages().subscribe((message: string) => {
       console.log('Mensaje recibido desde WebSocket:', message);

@@ -1,4 +1,5 @@
 export const environment = { 
   production: false,
-  serviceUrl: 'http://localhost:8080'
+  serviceUrl: 'https://apirest-go.onrender.com',
+  webSocketUrl: 'wss://apirest-go.onrender.com/ws'
 };
