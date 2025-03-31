@@ -1,0 +1,9 @@
+----------------------------------------------------------------
+Protecto fuente prueba técnica para cargo IngenieroCloud
+
+1. SQL Server 2022
+2. GOLANG 1.24
+3. Angular 18.2.0
+
+Favor leer la el item "Documenacion" en el cual se detallan cada una de las capas y se mencionan mejoras que se le hicieron a la prueba aprovechando toda la experiencia adquirida.
+
