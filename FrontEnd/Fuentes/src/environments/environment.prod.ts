@@ -1,4 +1,4 @@
 export const environment = { 
   production: true,
-  serviceUrl: 'https://fullstack.somee.com'
+  serviceUrl: 'https://apirest-go.onrender.com'
 };
