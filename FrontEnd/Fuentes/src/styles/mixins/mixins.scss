@@ -1,0 +1,18 @@
+$breakpoints: (
+  'desktop': (min-width: 1024px) and (max-width: 1366px),
+  'mobile': ( max-width: 767px ),
+  'tablet': (min-width: 768px) and (max-width: 1023px)
+) !default;
+
+@mixin media($breakpoint) {
+  @if map-has-key( $breakpoints, $breakpoint ) {
+    @media #{ inspect(map-get($breakpoints,
+    $breakpoint))} {
+      @content;
+    }
+  }
+
+  @else {
+    @warn 'valor no recibido o no coicide con `#{$breakpoint}`. ';
+  }
+}

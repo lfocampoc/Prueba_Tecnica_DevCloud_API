@@ -1,0 +1,24 @@
+screen-formulary {
+  color: black;
+  max-height: 666px;
+  padding: 20px 6px;
+
+  mat-icon {
+    cursor: pointer;
+  }
+
+  mat-form-field {
+    width: 90%;
+  }
+
+  .button-actions {
+    margin: 0 auto;
+    text-align: center;
+
+    .section-btns {
+      margin: 0 10px;
+      padding: 0 22px;
+    }
+  }
+
+}

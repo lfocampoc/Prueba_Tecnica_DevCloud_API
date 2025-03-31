@@ -1,0 +1,3 @@
+@mixin box-shadow($position1, $position2, $position3, $position4, $color) {
+  box-shadow: $position1 $position2 $position3 $position4 $color;
+}

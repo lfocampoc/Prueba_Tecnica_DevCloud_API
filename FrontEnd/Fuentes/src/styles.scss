@@ -1,0 +1,29 @@
+$font-nova: '$proxima-nova';
+
+// Fonts
+$font-weight-7: 700;
+$font-errors: 12px;
+
+// Colors
+$color-alert: #af2b2b;
+
+$brd-radius-1: 1px;
+$brd-radius-2: 2px;
+$brd-radius-3: 3px;
+$brd-radius-4: 4px;
+
+// Paddings
+$padding-large: 26px;
+
+@import 'styles/main';
+
+.mat-app-backgroundbody {
+  background-color: black;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.content {
+  min-height: 100vh;
+}

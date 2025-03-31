@@ -1,0 +1,71 @@
+
+
+<section class="login">
+  <div class="section-theme">
+    <p><mat-slide-toggle (click)="changueTheme()">
+      <div *ngIf="themeService.themeSignal() === 'dark'">
+        <mat-icon svgIcon="sun"></mat-icon>
+      </div>
+      <div *ngIf="themeService.themeSignal() !== 'dark'">
+        <mat-icon svgIcon="moon"></mat-icon>
+      </div>
+    </mat-slide-toggle></p>  
+  </div>
+
+  <div class="login-section">
+    <div class="row col-6 card-login">
+      <div class="col-6">
+        <img src="https://media.istockphoto.com/id/136636516/photo/network-server-room.jpg?s=612x612&w=0&k=20&c=XTxDGs-1WzGB8H5zR8CKk29vbhm46faW7hzZ13A2HDU=" alt="" style="width: 100%;">
+      </div>
+      <div class="col-6">
+        <h1 class="title">IFX Prueba Tecnica</h1>
+
+        <div class="pt-4">
+          <img src="/assets/img/programmer.png" alt="" style="width: 18%;">
+        </div>
+
+        <form [formGroup]="formLogin" (ngSubmit)="processLogin(formLogin.value)">
+          <div class="form-login">
+            <div class="user-field">
+              <label class="label-detail">Correo Electronico</label>
+              <mat-form-field class="input-form" [floatLabel]="'always'">
+                <input
+                  matInput
+                  required
+                  placeholder="ejemplo@ejemplo.com"
+                  class="custom-input"
+                  id="email"
+                  name="email"
+                  formControlName="email"/>
+                <mat-error class="mat-error">Correo electronico requerido</mat-error>
+              </mat-form-field> 
+            </div>
+            <div class="user-field">
+              <label class="label-detail">Contraseña</label>
+              <mat-form-field class="input-form" [floatLabel]="'always'">
+                <input
+                  matInput
+                  required
+                  placeholder="Ingrese su contraseña"
+                  class="custom-input"
+                  name="password"
+                  formControlName="password"
+                  type="{{ showPassword ? 'text' : 'password' }}"/>
+                <mat-icon matSuffix (click)="showPassword = !showPassword" style="cursor: pointer;">{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                <mat-error class="mat-error">Campo requerido</mat-error>
+              </mat-form-field> 
+            </div>
+            <div class="errorLogin" *ngIf="errorLogin">
+              <p *ngFor="let error of errorService">{{ error }}</p>
+            </div>
+            <div class="form-submit">
+              <div class="section-button">
+                <button mat-raised-button color="primary" [disabled]="formLogin.status === 'INVALID'" type="submit">Conectarme</button>
+              </div>
+            </div>
+          </div>
+        </form >
+      </div>
+    </div>
+  </div>
+</section>

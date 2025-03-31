@@ -1,0 +1,150 @@
+<div class="section-control">
+  <mat-card>
+    <div class="container">
+      <div class="title">
+        <h1 color="primary">{{ dataElement ? 'Editar ': 'Crear nueva ' }} maquina virtual</h1>
+      </div>
+
+      <div class="formulary">
+        <form [formGroup]="formVms">
+          <div class="row">
+            <div class="col-md-6">
+              <!-- Valida Inputs -->
+              <ng-container>
+                <mat-form-field class="input-form" [floatLabel]="'always'" appearance="outline">
+                  <mat-label>Nombre de la maquina</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ingrese el nombre"
+                    maxlength="10"
+                    name="name"
+                    formControlName="name"
+                    type="text" />
+                  <mat-error class="mat-error">El nombre de la maquina es requerido</mat-error>
+                </mat-form-field>
+              </ng-container>
+            </div>
+
+            <div class="col-md-6">
+              <ng-container>
+                <mat-form-field class="input-form" [floatLabel]="'always'" appearance="outline">
+                  <mat-label>Cores en la maquina</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ingrese los CORES de la maquina"
+                    maxlength="10"
+                    name="cores"
+                    formControlName="cores"
+                    type="number" />
+                  <mat-error class="mat-error">Campo requerido</mat-error>
+                </mat-form-field>
+              </ng-container>
+            </div>
+
+            <div class="col-md-6">
+              <ng-container>
+                <mat-form-field class="input-form" [floatLabel]="'always'" appearance="outline">
+                  <mat-label>Ram de la maquina</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ingrese la RAM de la maquina"
+                    class="custom-input"
+                    name="ram"
+                    formControlName="ram"
+                    type="number" />
+                  <mat-error class="mat-error">La RAM es requerida</mat-error>
+                </mat-form-field>
+              </ng-container>
+            </div>
+
+            <div class="col-md-6">
+              <ng-container>
+                <mat-form-field class="input-form" [floatLabel]="'always'" appearance="outline">
+                  <mat-label>Disco en la maquina</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ingrese la capacidad del disco"
+                    name="disk"
+                    formControlName="disk"
+                    type="number" />
+                  <mat-error class="mat-error">El disco de la maquina es requerido</mat-error>
+                </mat-form-field>
+              </ng-container>
+            </div>
+
+            <div class="col-md-6">
+              <ng-container>
+                <mat-form-field class="input-form" [floatLabel]="'always'">
+                  <mat-select 
+                    placeholder="Seleccione el sistema operativo"
+                    formControlName="os">
+                    <mat-option [value]="'Win'">Win</mat-option>
+                    <mat-option [value]="'Mac'">Mac</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </ng-container>
+            </div>
+
+            <div class="col-md-6">
+              <ng-container>
+                <mat-form-field class="input-form" [floatLabel]="'always'">
+                  <mat-slide-toggle
+                    [color]="'warn'"
+                    formControlName="status">
+                  </mat-slide-toggle> <span>  Estado de la maquina</span>
+                  <textarea matInput hidden></textarea>
+                </mat-form-field>
+              </ng-container>
+            </div>
+
+            <div class="col-md-6">
+              <ng-container>
+                <mat-form-field class="input-form" [floatLabel]="'always'" appearance="outline">
+                  <mat-label>Fecha de Creación</mat-label>
+                  <input
+                    matInput
+                    placeholder="Fecha de inicio"
+                    name="creationDate"
+                    formControlName="creationDate"
+                    type="text" />
+                </mat-form-field>
+              </ng-container>
+            </div>
+
+            <div class="col-md-6">
+              <ng-container>
+                <mat-form-field class="input-form" [floatLabel]="'always'" appearance="outline">
+                  <mat-label>Fecha de Actualización</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ingrese la capacidad del disco"
+                    name="updateDate"
+                    formControlName="updateDate"
+                    type="text" />
+                </mat-form-field>
+              </ng-container>
+            </div>
+          </div>
+        </form>
+
+        <div class="button-actions">
+          <button
+            mat-raised-button
+            class="section-btns"
+            type="button"
+            [disabled]="formVms.status === 'INVALID'"
+            (click)="processForm()"
+            color="primary">
+            {{ dataElement ? 'Actualizar' : 'Nuevo' }}
+          </button>
+          <button
+            mat-raised-button
+            class="section-btns"
+            (click)="closeModal()"
+          >Volver
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

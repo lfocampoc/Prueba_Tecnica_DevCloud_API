@@ -1,0 +1,60 @@
+// Importar Angular Material
+@use "@angular/material" as mat;
+@include mat.core();
+
+// Configuración para evitar advertencias de duplicación de tema
+mat.$theme-ignore-duplication-warnings: true;
+
+// -- Light Theme --
+$light-theme-primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+$light-theme-accent: mat.m2-define-palette(mat.$m2-purple-palette, A200, A100, A400);
+$light-theme-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+// Definición del tema claro
+$light-theme: mat.m2-define-light-theme((
+  color: (
+    primary: $light-theme-primary,
+    accent: $light-theme-accent,
+    warn: $light-theme-warn,
+  ),
+  typography: mat.m2-define-typography-config(),
+));
+
+// -- Dark Theme --
+$dark-theme-primary: mat.m2-define-palette(mat.$m2-blue-grey-palette);  // Color verde
+$dark-theme-accent: mat.m2-define-palette(mat.$m2-deep-orange-palette, A200, A100, A400);
+$dark-theme-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+// Definición del tema oscuro
+$dark-theme: mat.m2-define-dark-theme((
+  color: (
+    primary: $dark-theme-primary,
+    accent: $dark-theme-accent,
+    warn: $dark-theme-warn,
+  ),
+  typography: mat.m2-define-typography-config(),
+));
+
+// Variables para los colores del fondo
+// Dark mode
+$semi-dark-bg-color: #333;
+$dark-bg-color: #222;
+$light-text-color: #cacaca;
+
+// Light mode
+$light-bg-color: #d2d2d2;
+$semi-light-bg-color: #c0c0c0;
+$dark-text-color: #333;
+
+// Estilos para el tema oscuro
+.dark {
+  @include mat.all-component-colors($dark-theme);
+
+  background-color: $dark-bg-color;  // Fondo más oscuro
+  color: $light-text-color;
+}
+
+// Estilos para el tema claro
+.light {
+  @include mat.all-component-themes($light-theme);
+}

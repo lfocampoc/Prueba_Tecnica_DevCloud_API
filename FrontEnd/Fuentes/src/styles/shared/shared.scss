@@ -1,0 +1,48 @@
+.navigator-header {
+
+  a {
+    cursor: pointer;
+    display: flex;
+    margin: 0 4px;
+  }
+
+  .btn-menu {
+    margin-right: 10px;
+  }
+  .order-items {
+    flex: 1 1 auto;
+  }
+}
+
+.sidenav_container {
+  height: calc(100vh - 200px);
+  min-width: 60px;
+}
+
+.navigator-menu {
+  .jim {
+    border-radius: 50%;
+    height: 30px;
+    object-fit: cover;
+    width: 30px;
+  }
+
+  .main_content {
+    height: calc(100vh - 100px);
+    width: 100%;
+
+    .dashboard {
+      font-weight: 700;
+    }
+  }
+}
+
+.myPanelClass {
+  font-size: larger;
+}
+
+.navigator-footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}

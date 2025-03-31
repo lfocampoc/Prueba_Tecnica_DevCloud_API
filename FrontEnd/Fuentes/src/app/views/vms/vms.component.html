@@ -1,0 +1,88 @@
+<screen-header></screen-header>
+
+<section class="home">
+  <div class="container">
+    
+
+    <div class="row title-page">
+      <div class="col-6">
+        <h1 style="font-size: 30px; font-weight: 700;">Gestor de maquinas virtuales</h1>
+      </div>
+      <div class="col-6">
+        <button mat-raised-button color="primary" (click)="modeModal = 'new'; processFormulary(null)" [disabled]="userLogin.TypeUser == 2" type="button">Crear VM</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4 pt-4" *ngFor="let vm of vmsListData" style="margin: 0 10px;">
+        <div class="row card-section mat-elevation-z4">
+          <h1 style="text-align: center; font-weight: 600;">{{ vm.name }}</h1>
+          <div class="col-6">
+            <img src="/assets/img/computer.png" alt="" style="width: 90%;">
+          </div>
+          <div class="col-6">
+            <h3 style="text-align: center;">Propiedades VM</h3>
+            <div class="row">
+              <div class="col-6" style="margin-bottom: 12px;">
+                <div class="title-cards">Cores</div>
+                <div class="content-card">
+                  <mat-icon svgIcon="cpu"/>
+                  <span class="px-2"> - {{ vm.cores }}</span> 
+                </div>
+              </div>
+              <div class="col-6" style="margin-bottom: 12px;">
+                <div class="title-cards">Ram</div>
+                <div class="content-card">
+                  <mat-icon svgIcon="ram"/>
+                  <span class="px-2"> - {{ vm.ram }}</span> 
+                </div>
+              </div>
+              <div class="col-6" style="margin-bottom: 12px;">
+                <div class="title-cards">Disco duro</div>
+                <div class="content-card">
+                  <mat-icon svgIcon="disk"/>
+                  <span class="px-2"> - {{ vm.disk }}</span> 
+                </div>
+              </div>
+              <div class="col-6" style="margin-bottom: 12px;">
+                <div class="title-cards">S. O.</div>
+                <div class="content-card">
+                  <mat-icon svgIcon="windows"/>
+                  <span class="px-2"> - {{ vm.os }}</span> 
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="row" style="text-align: center;">
+            <div class="col-6">
+              <button
+                mat-raised-button
+                color="primary"
+                type="button"
+                [disabled]="userLogin.TypeUser == 2"
+                (click)="modeModal = 'edit'; processFormulary(vm)"><mat-icon fontIcon="add"/> Editar VM</button>
+            </div>
+            <div class="col-6">
+              <button
+                mat-raised-button
+                (click)="deleteVms(vm)" [disabled]="userLogin.TypeUser == 2"
+                type="button"><mat-icon fontIcon="delete"/> Eliminar VM</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+
+<screen-footer></screen-footer>
+
+<screen-modal id="vmsModal">
+  <screen-form-vms
+    *ngIf="showModal"
+    [dataElement]="dataElement"
+    (saveForm)="saveForm($event)"
+  ></screen-form-vms>
+</screen-modal>
