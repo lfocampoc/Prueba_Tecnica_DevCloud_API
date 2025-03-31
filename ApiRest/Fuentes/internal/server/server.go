@@ -2,6 +2,7 @@ package server
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
@@ -17,7 +18,16 @@ type Server struct {
 
 func NewServer() *http.Server {
 	// Cargar el archivo .env
-	godotenv.Load("../../.env")
+	if os.Getenv("ENV") != "production" {
+		// Si no es producción, carga el archivo .env
+		err := godotenv.Load("../../.env")
+		if err != nil {
+			log.Fatal("Error al cargar el archivo .env")
+		}
+		fmt.Println("Archivo .env cargado correctamente")
+	} else {
+		fmt.Println("Entorno de producción, no se carga el archivo .env")
+	}
 
 	port, _ := strconv.Atoi(os.Getenv("PORT"))
 	NewServer := &Server{

@@ -15,10 +15,12 @@ var dbInstance *gorm.DB
 func InitDB() error {
 	var err error
 
-	err = godotenv.Load("../../.env")
-	if err != nil {
-		log.Fatal("Error al cargar el archivo .env")
-		return err
+	if os.Getenv("ENV") != "production" {
+		err := godotenv.Load("../../.env")
+		if err != nil {
+			log.Fatal("Error al cargar el archivo .env")
+		}
+		fmt.Println("Archivo .env cargado correctamente")
 	}
 
 	// Cadena de conexion a la base de datos
